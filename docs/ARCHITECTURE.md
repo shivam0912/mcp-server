@@ -7,10 +7,10 @@ Browser → Next.js /api/chat → MCP Client → Streamable HTTP /mcp
                                          ↓
                          authorization → retrieval repository
                                          ↓
-                     local seed (default) / PostgreSQL (production)
+                       SQLite (default) / PostgreSQL (hosted option)
 ```
 
-The web route does not import retrieval code for answering questions. It connects as an independent MCP client, discovers `search_documents`, invokes it through the protocol, and composes a response from the structured result. The local non-LLM composer is intentionally transparent and deterministic; setting an OpenAI-compatible provider enables model synthesis over the same evidence.
+The web route does not import retrieval code for answering questions. It connects as an independent MCP client and discovers tools. A configured OpenAI-compatible model receives the discovered schemas and selects a tool; without credentials, a transparent deterministic planner chooses among overview, record lookup, document retrieval, and search. The selected call always executes through MCP.
 
 The MCP server creates a fresh protocol server for each HTTP request using the SDK v2 handler. stdio uses the same factory, which keeps tool semantics identical across transports.
 
@@ -23,6 +23,6 @@ The MCP server creates a fresh protocol server for each HTTP request using the S
 5. The LLM receives only bounded evidence and an allowlist of valid citation identifiers.
 6. Database service credentials remain on the server side.
 
-## Production data path
+## Persistence and production data path
 
-The migration establishes collection ownership, memberships, documents, chunks, records, chats, tool observations, evaluation runs, full-text indexes, vector indexes, and row-level policies. A deployment should add a repository adapter that executes parameterized functions under a least-privilege database role and an ingestion worker backed by object storage.
+SQLite is created automatically in `data/contextbridge.sqlite`; uploaded files are stored under `data/files`. Both paths are ignored by Git. The included PostgreSQL migration establishes collection ownership, memberships, documents, chunks, records, chats, tool observations, evaluation runs, full-text indexes, vector indexes, and row-level policies for a future multi-user hosted adapter.

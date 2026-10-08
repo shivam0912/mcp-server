@@ -1,8 +1,9 @@
-import { describe, expect, it } from "vitest";
+import { afterAll, describe, expect, it } from "vitest";
 import { KnowledgeRepository } from "./index.js";
 
 describe("KnowledgeRepository", () => {
-  const repository = new KnowledgeRepository();
+  const repository = new KnowledgeRepository({ databasePath: ":memory:" });
+  afterAll(() => repository.close());
   it("ranks authentication evidence deterministically", () => {
     const first = repository.search({ query: "authentication bearer credential", limit: 5, search_mode: "hybrid" });
     const second = repository.search({ query: "authentication bearer credential", limit: 5, search_mode: "hybrid" });
@@ -21,5 +22,10 @@ describe("KnowledgeRepository", () => {
   });
   it("rejects unauthorized collections", () => {
     expect(() => repository.search({ query: "test", collection_id: "private", limit: 5, search_mode: "keyword" })).toThrow("FORBIDDEN_COLLECTION");
+  });
+  it("indexes uploaded text and exposes it through retrieval", () => {
+    repository.ingestDocument({id:"upload-test",title:"Robotics Notes",description:"Test",filePath:"/tmp/test.txt",mimeType:"text/plain",checksum:"test-checksum",text:"The rover uses lidar mapping and autonomous path planning."});
+    expect(repository.search({query:"lidar mapping",limit:5,search_mode:"keyword"}).results[0]?.document_id).toBe("upload-test");
+    expect(repository.listDocuments().find(document=>document.id==="upload-test")?.chunkCount).toBe(1);
   });
 });

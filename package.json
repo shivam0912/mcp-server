@@ -12,8 +12,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "eval": "tsx evals/run.ts",
+    "setup": "node --import tsx scripts/seed.ts",
     "seed": "tsx scripts/seed.ts",
-    "reset": "tsx scripts/reset.ts",
+    "reset": "node --import tsx scripts/reset.ts",
     "secret-scan": "node scripts/secret-scan.mjs"
   },
   "devDependencies": {

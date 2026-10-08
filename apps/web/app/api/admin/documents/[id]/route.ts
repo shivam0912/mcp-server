@@ -1,0 +1,3 @@
+import { NextResponse } from "next/server";
+export const runtime="nodejs";
+export async function DELETE(_request:Request,{params}:{params:Promise<{id:string}>}){try{const {id}=await params;const headers:Record<string,string>={};if(process.env.ADMIN_API_KEY)headers.Authorization=`Bearer ${process.env.ADMIN_API_KEY}`;const response=await fetch(`${process.env.MCP_BACKEND_URL??"http://127.0.0.1:8787"}/admin/documents/${encodeURIComponent(id)}`,{method:"DELETE",headers});return response.status===204?new NextResponse(null,{status:204}):new NextResponse(await response.text(),{status:response.status,headers:{"content-type":"application/json"}})}catch{return NextResponse.json({error:{message:"The local MCP server is not running."}},{status:503})}}

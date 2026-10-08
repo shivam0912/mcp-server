@@ -1,3 +1,5 @@
-import { documents, records } from "@contextbridge/retrieval";
-console.log(`Seed data is source-controlled and ready: ${documents.length} documents, ${records.length} records.`);
-console.log("For Supabase, apply migrations first, then adapt this deterministic dataset through the repository adapter.");
+import { KnowledgeRepository, records } from "@contextbridge/retrieval";
+const repository = new KnowledgeRepository();
+console.log(`Local SQLite database ready at ${repository.databasePath}`);
+console.log(`Seed data ready: ${repository.listDocuments().filter(document=>document.source==="seed").length} documents, ${records.length} records.`);
+repository.close();

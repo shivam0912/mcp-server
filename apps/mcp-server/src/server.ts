@@ -11,7 +11,13 @@ import {
   textResult
 } from "@contextbridge/shared";
 
-const repository = new KnowledgeRepository();
+export const repository = new KnowledgeRepository();
+
+async function measured<T>(toolName: string, operation: () => Promise<T> | T): Promise<T> {
+  const started = performance.now();
+  try { const result = await operation(); repository.recordToolCall(toolName, true, performance.now() - started); return result; }
+  catch (error) { repository.recordToolCall(toolName, false, performance.now() - started, error instanceof Error ? error.message : "UNKNOWN"); throw error; }
+}
 
 export const createContextBridgeServer = () => {
   const server = new McpServer(
@@ -23,37 +29,37 @@ export const createContextBridgeServer = () => {
     title: "Search documents",
     description: "Search authorized knowledge documents. Returns exact source identifiers for citations.",
     inputSchema: searchInputSchema
-  }, async (input) => {
+  }, async (input) => measured("search_documents", async () => {
     try { return textResult(repository.search(input)); }
     catch (error) {
       if (error instanceof Error && error.message === "FORBIDDEN_COLLECTION") return errorResult("FORBIDDEN", "The requested collection is not accessible.");
       return errorResult("SEARCH_FAILED", "Document search failed.");
     }
-  });
+  }));
 
   server.registerTool("get_document", {
     title: "Get document",
     description: "Retrieve an authorized document or a selected section by its stable identifier.",
     inputSchema: getDocumentInputSchema
-  }, async ({ document_id, section_id, chunk_id }) => {
+  }, async ({ document_id, section_id, chunk_id }) => measured("get_document", async () => {
     const result = repository.getDocument(document_id, section_id, chunk_id);
     return result ? textResult(result) : errorResult("NOT_FOUND", "Document or section was not found in the authorized collection.");
-  });
+  }));
 
   server.registerTool("lookup_record", {
     title: "Look up structured record",
     description: "Look up one public project, course, or research record by exact identifier, key, or title.",
     inputSchema: lookupRecordInputSchema
-  }, async ({ record_type, record_id }) => {
+  }, async ({ record_type, record_id }) => measured("lookup_record", async () => {
     const result = repository.lookupRecord(record_type, record_id);
     return result ? textResult({ record: result }) : errorResult("NOT_FOUND", "No matching public record exists.");
-  });
+  }));
 
   server.registerTool("get_collection_overview", {
     title: "Get collection overview",
     description: "Return public metadata and topics for the demo collection.",
     inputSchema: overviewInputSchema
-  }, async () => textResult({ collection: repository.overview() }));
+  }, async () => measured("get_collection_overview", async () => textResult({ collection: repository.overview() })));
 
   for (const document of repository.listDocuments()) {
     server.registerResource(

@@ -1,12 +1,12 @@
 {
   "suiteVersion": "1.0.0",
-  "createdAt": "2026-10-08T15:09:45.267Z",
+  "createdAt": "2026-10-08T17:02:15.596Z",
   "total": 40,
   "passed": 40,
   "toolSelectionAccuracy": 1,
   "retrievalRecallAt5": 1,
   "citationAccuracy": 1,
-  "p95LatencyMs": 0.574,
+  "p95LatencyMs": 0.556,
   "observations": [
     {
       "id": "s01",
@@ -14,7 +14,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 4.314
+      "latencyMs": 4.816
     },
     {
       "id": "s02",
@@ -22,7 +22,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.341
+      "latencyMs": 0.489
     },
     {
       "id": "s03",
@@ -30,7 +30,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.307
+      "latencyMs": 0.354
     },
     {
       "id": "s04",
@@ -38,7 +38,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.324
+      "latencyMs": 0.33
     },
     {
       "id": "s05",
@@ -46,7 +46,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.245
+      "latencyMs": 0.282
     },
     {
       "id": "s06",
@@ -54,7 +54,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.502
+      "latencyMs": 0.527
     },
     {
       "id": "s07",
@@ -62,7 +62,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.224
+      "latencyMs": 0.236
     },
     {
       "id": "s08",
@@ -70,7 +70,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.206
+      "latencyMs": 0.232
     },
     {
       "id": "s09",
@@ -78,7 +78,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.201
+      "latencyMs": 0.268
     },
     {
       "id": "s10",
@@ -86,7 +86,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.204
+      "latencyMs": 0.23
     },
     {
       "id": "m01",
@@ -94,7 +94,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.206
+      "latencyMs": 0.244
     },
     {
       "id": "m02",
@@ -102,7 +102,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.201
+      "latencyMs": 0.229
     },
     {
       "id": "m03",
@@ -110,7 +110,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.19
+      "latencyMs": 0.226
     },
     {
       "id": "m04",
@@ -118,7 +118,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.198
+      "latencyMs": 0.242
     },
     {
       "id": "m05",
@@ -126,7 +126,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.574
+      "latencyMs": 0.556
     },
     {
       "id": "m06",
@@ -134,7 +134,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.191
+      "latencyMs": 0.269
     },
     {
       "id": "m07",
@@ -142,7 +142,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.183
+      "latencyMs": 0.244
     },
     {
       "id": "m08",
@@ -150,7 +150,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.185
+      "latencyMs": 0.236
     },
     {
       "id": "r01",
@@ -158,7 +158,7 @@
       "toolCorrect": true,
       "retrievalHit": null,
       "citationValid": null,
-      "latencyMs": 0.022
+      "latencyMs": 0.06
     },
     {
       "id": "r02",
@@ -166,7 +166,7 @@
       "toolCorrect": true,
       "retrievalHit": null,
       "citationValid": null,
-      "latencyMs": 0.003
+      "latencyMs": 0.016
     },
     {
       "id": "r03",
@@ -174,7 +174,7 @@
       "toolCorrect": true,
       "retrievalHit": null,
       "citationValid": null,
-      "latencyMs": 0.007
+      "latencyMs": 0.019
     },
     {
       "id": "r04",
@@ -182,7 +182,7 @@
       "toolCorrect": true,
       "retrievalHit": null,
       "citationValid": null,
-      "latencyMs": 0.008
+      "latencyMs": 0.023
     },
     {
       "id": "r05",
@@ -190,7 +190,7 @@
       "toolCorrect": true,
       "retrievalHit": null,
       "citationValid": null,
-      "latencyMs": 0.002
+      "latencyMs": 0.015
     },
     {
       "id": "r06",
@@ -198,7 +198,7 @@
       "toolCorrect": true,
       "retrievalHit": null,
       "citationValid": null,
-      "latencyMs": 0.002
+      "latencyMs": 0.011
     },
     {
       "id": "a01",
@@ -206,7 +206,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.166
+      "latencyMs": 0.212
     },
     {
       "id": "a02",
@@ -214,7 +214,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.175
+      "latencyMs": 0.221
     },
     {
       "id": "a03",
@@ -222,7 +222,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.157
+      "latencyMs": 0.212
     },
     {
       "id": "a04",
@@ -230,7 +230,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.157
+      "latencyMs": 0.204
     },
     {
       "id": "u01",
@@ -238,7 +238,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.175
+      "latencyMs": 0.226
     },
     {
       "id": "u02",
@@ -246,7 +246,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.162
+      "latencyMs": 0.227
     },
     {
       "id": "u03",
@@ -254,7 +254,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.18
+      "latencyMs": 0.248
     },
     {
       "id": "u04",
@@ -262,7 +262,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.196
+      "latencyMs": 0.276
     },
     {
       "id": "x01",
@@ -270,7 +270,7 @@
       "toolCorrect": true,
       "retrievalHit": null,
       "citationValid": null,
-      "latencyMs": 0.011,
+      "latencyMs": 0.012,
       "note": "FORBIDDEN_COLLECTION"
     },
     {
@@ -279,7 +279,7 @@
       "toolCorrect": true,
       "retrievalHit": null,
       "citationValid": null,
-      "latencyMs": 0.817,
+      "latencyMs": 0.858,
       "note": "[\n  {\n    \"origin\": \"string\",\n    \"code\": \"too_small\",\n    \"minimum\": 1,\n    \"inclusive\": true,\n    \"path\": [\n      \"query\"\n    ],\n    \"message\": \"Too small: expected string to have >=1 characters\"\n  }\n]"
     },
     {
@@ -288,7 +288,7 @@
       "toolCorrect": true,
       "retrievalHit": null,
       "citationValid": null,
-      "latencyMs": 0.081,
+      "latencyMs": 0.084,
       "note": "[\n  {\n    \"origin\": \"number\",\n    \"code\": \"too_big\",\n    \"maximum\": 10,\n    \"inclusive\": true,\n    \"path\": [\n      \"limit\"\n    ],\n    \"message\": \"Too big: expected number to be <=10\"\n  }\n]"
     },
     {
@@ -297,7 +297,7 @@
       "toolCorrect": true,
       "retrievalHit": null,
       "citationValid": null,
-      "latencyMs": 0.016
+      "latencyMs": 0.04
     },
     {
       "id": "p01",
@@ -305,7 +305,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.216
+      "latencyMs": 0.268
     },
     {
       "id": "p02",
@@ -313,7 +313,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.217
+      "latencyMs": 0.273
     },
     {
       "id": "p03",
@@ -321,7 +321,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.204
+      "latencyMs": 0.253
     },
     {
       "id": "p04",
@@ -329,7 +329,7 @@
       "toolCorrect": true,
       "retrievalHit": true,
       "citationValid": true,
-      "latencyMs": 0.217
+      "latencyMs": 0.269
     }
   ]
 }

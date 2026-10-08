@@ -7,7 +7,15 @@
     ".": "./src/index.ts",
     "./data": "./src/data.ts"
   },
-  "scripts": { "typecheck": "tsc --noEmit" },
-  "dependencies": { "@contextbridge/shared": "*" },
-  "devDependencies": { "typescript": "^5.9.3" }
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@contextbridge/shared": "*",
+    "better-sqlite3": "^12.4.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "typescript": "^5.9.3"
+  }
 }
