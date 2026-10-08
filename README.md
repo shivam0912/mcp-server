@@ -1,6 +1,6 @@
-# ContextBridge AI
+# MCP Server — ContextBridge AI
 
-ContextBridge AI is a genuine Model Context Protocol knowledge server and evidence-grounded document assistant. It uses the official MCP TypeScript SDK v2, exposes tools/resources/prompts over Streamable HTTP and stdio, and includes a Next.js interface with an inspectable tool trace.
+**MCP Server** is the formal MCA major-project name used in the recommendation letter. **ContextBridge AI** is its portfolio/demo application: a genuine Model Context Protocol knowledge server and evidence-grounded document assistant using the official MCP TypeScript SDK v2.
 
 The repository is designed to work without cloud credentials. SQLite persists uploads, indexed chunks, records, and MCP activity inside the project. The public demo includes eight original documents and twenty structured records, deterministic keyword retrieval, a transparent local answer path, and a 40-case evaluation suite.
 

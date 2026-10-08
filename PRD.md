@@ -1,4 +1,4 @@
-# ContextBridge AI — Product Requirements
+# MCP Server — ContextBridge AI Product Requirements
 
 Version 1.0 · MCP Server / AI Knowledge Assistant
 
