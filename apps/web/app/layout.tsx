@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: "MCP Server — ContextBridge AI", template: "%s · MCP Server" },
-  description: "An MCA major project implementing a genuine MCP knowledge server and evidence-grounded assistant."
+  description: "A genuine MCP knowledge server and evidence-grounded assistant."
 };
 
 const links = [["/chat", "Workspace"], ["/knowledge", "Knowledge"], ["/evaluations", "Evaluations"], ["/docs", "Docs"]] as const;
@@ -20,6 +20,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <div className="header-actions"><Link href="/admin" className="quiet-link">Admin</Link><ThemeToggle/>{repositoryUrl?<a className="button small" href={repositoryUrl} target="_blank" rel="noreferrer"><Github size={15}/> Repository</a>:null}</div>
     </header>
     {children}
-    <footer><div className="brand"><span className="brand-mark"><Braces size={17}/></span><span>MCP Server · ContextBridge AI</span></div><p>MCA major project demonstrating real MCP interoperability, retrieval, and honest evaluation.</p><span>Apache-2.0 / MIT dependencies</span></footer>
+    <footer><div className="brand"><span className="brand-mark"><Braces size={17}/></span><span>MCP Server · ContextBridge AI</span></div><p>Demonstrating real MCP interoperability, retrieval, and honest evaluation.</p><span>Apache-2.0 / MIT dependencies</span></footer>
   </body></html>;
 }
