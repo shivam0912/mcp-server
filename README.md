@@ -60,7 +60,7 @@ Stdio example:
   "mcpServers": {
     "contextbridge": {
       "command": "node",
-      "args": ["--import", "tsx", "/absolute/path/contextbridge-ai/apps/mcp-server/src/stdio.ts"]
+      "args": ["--import", "tsx", "/absolute/path/mcp-server/apps/mcp-server/src/stdio.ts"]
     }
   }
 }
