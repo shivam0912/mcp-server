@@ -29,6 +29,8 @@ npm run dev
 
 Open `http://localhost:3000`. The MCP service listens on `http://127.0.0.1:8787/mcp`; health is at `/health`.
 
+The repository includes `.vscode/mcp.json`. After `npm run dev`, VS Code can discover the same ContextBridge tools used by the web workspace. MCP does not expose the whole computer: the server can access only its seeded records and files explicitly imported through Admin.
+
 To deliberately clear local uploads and restore only the seeded collection, stop the dev servers and run `npm run reset -- --yes`.
 
 If `MCP_API_KEY` is set, use the same value for the web and MCP processes. No API key, Supabase account, Docker service, or cloud database is needed for local use. Open **Admin** to upload a document, then ask about it in **Workspace**. All retrieval still travels through a genuine MCP client and server.

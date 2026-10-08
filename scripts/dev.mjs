@@ -1,4 +1,9 @@
 import { spawn } from "node:child_process";
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
+
+const envFile = resolve(process.cwd(), ".env");
+if (existsSync(envFile)) process.loadEnvFile(envFile);
 
 const children = [
   spawn("npm", ["run", "dev", "-w", "@contextbridge/mcp-server"], { stdio: "inherit", shell: false }),

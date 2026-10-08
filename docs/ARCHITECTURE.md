@@ -1,7 +1,7 @@
 # Architecture
 
 ```text
-Browser → Next.js /api/chat → MCP Client → Streamable HTTP /mcp
+Browser chat / VS Code → MCP Client → Streamable HTTP /mcp
                                          ↓
                               MCP tools/resources/prompt
                                          ↓
@@ -13,6 +13,8 @@ Browser → Next.js /api/chat → MCP Client → Streamable HTTP /mcp
 The web route does not import retrieval code for answering questions. It connects as an independent MCP client and discovers tools. A configured OpenAI-compatible model receives the discovered schemas and selects a tool; without credentials, a transparent deterministic planner chooses among overview, record lookup, document retrieval, and search. The selected call always executes through MCP.
 
 The MCP server creates a fresh protocol server for each HTTP request using the SDK v2 handler. stdio uses the same factory, which keeps tool semantics identical across transports.
+
+MCP is the standardized boundary between an AI client and capabilities exposed by the server. It does not grant blanket computer access. ContextBridge exposes four narrow read-only tools over its own SQLite collection and files explicitly imported through Admin. The tracked `.vscode/mcp.json` lets VS Code use the same running server.
 
 ## Trust boundaries
 
