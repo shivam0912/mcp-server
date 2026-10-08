@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const links = [["/chat", "Workspace"], ["/knowledge", "Knowledge"], ["/evaluations", "Evaluations"], ["/docs", "Docs"]] as const;
-const repositoryUrl = process.env.NEXT_PUBLIC_REPOSITORY_URL ?? "https://github.com/shivam0912/contextbridge-ai";
+const repositoryUrl = process.env.NEXT_PUBLIC_REPOSITORY_URL ?? "https://github.com/shivam0912/mcp-server";
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="en"><body>
