@@ -21,6 +21,8 @@ The repository is designed to work without cloud credentials. SQLite persists up
 Requirements: Node.js 22+ and npm 10+.
 
 ```bash
+git clone https://github.com/shivam0912/contextbridge-ai.git
+cd contextbridge-ai
 cp .env.example .env
 npm install --legacy-peer-deps
 npm run setup
@@ -81,7 +83,7 @@ docs                     architecture, security, tool reference, and status
 
 ## Local-first and production boundary
 
-The clone-and-run experience is complete with SQLite. Local administration is restricted to loopback requests when no `ADMIN_API_KEY` is configured; production refuses that fallback. A hosted multi-user deployment should configure `ADMIN_API_KEY` or JWT authentication and replace local files with durable storage. Semantic search reports its keyword fallback explicitly when embeddings are unavailable. No live URL or remote repository is claimed. See `docs/IMPLEMENTATION_STATUS.md`.
+The clone-and-run experience is complete with SQLite. Local administration is restricted to loopback requests when no `ADMIN_API_KEY` is configured; production refuses that fallback. A hosted multi-user deployment should configure `ADMIN_API_KEY` or JWT authentication and replace local files with durable storage. Semantic search reports its keyword fallback explicitly when embeddings are unavailable. The source is public at [github.com/shivam0912/contextbridge-ai](https://github.com/shivam0912/contextbridge-ai); no hosted live demo is claimed. See `docs/IMPLEMENTATION_STATUS.md`.
 
 ## License
 
