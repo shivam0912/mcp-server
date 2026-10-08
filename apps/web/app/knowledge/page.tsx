@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+import { BookOpen, FileText } from "lucide-react";
+import { documents } from "@contextbridge/retrieval";
+export const metadata:Metadata={title:"Knowledge Base"};
+export default function KnowledgePage(){return <main className="page-shell"><div className="page-head"><div><span className="eyebrow">Public collection</span><h1>Knowledge base.</h1></div><p>Eight original demo documents make every result reproducible. These are fictional learning materials, not private or institutional records.</p></div><div className="notice" style={{marginBottom:22}}><BookOpen size={17}/> Computer Science Research Lab · {documents.length} documents · read only</div><section className="library-grid">{documents.map(doc=><article className="panel doc-card" key={doc.id}><span className="doc-icon"><FileText size={21}/></span><div><h3>{doc.title}</h3><p>{doc.description}</p><div className="doc-meta"><span>{doc.chunks.length} sections</span><span>Markdown</span><span>{doc.id}</span></div></div></article>)}</section></main>}

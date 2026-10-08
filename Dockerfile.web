@@ -1,0 +1,7 @@
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY . .
+RUN npm ci --legacy-peer-deps && npm run build -w @contextbridge/web
+ENV NODE_ENV=production
+EXPOSE 3000
+CMD ["npm", "run", "start", "-w", "@contextbridge/web"]

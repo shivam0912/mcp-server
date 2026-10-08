@@ -1,0 +1,26 @@
+services:
+  mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile.mcp
+    environment:
+      PORT: 8787
+      MCP_API_KEY: ${MCP_API_KEY:-local-demo-key}
+      ALLOWED_ORIGINS: http://localhost:3000
+    ports: ["8787:8787"]
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8787/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    environment:
+      MCP_URL: http://mcp:8787/mcp
+      MCP_API_KEY: ${MCP_API_KEY:-local-demo-key}
+    ports: ["3000:3000"]
+    depends_on:
+      mcp:
+        condition: service_healthy

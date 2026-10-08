@@ -1,0 +1,13 @@
+{
+  "name": "@contextbridge/retrieval",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./data": "./src/data.ts"
+  },
+  "scripts": { "typecheck": "tsc --noEmit" },
+  "dependencies": { "@contextbridge/shared": "*" },
+  "devDependencies": { "typescript": "^5.9.3" }
+}

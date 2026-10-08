@@ -1,0 +1,27 @@
+{
+  "name": "contextbridge-ai",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A production-oriented MCP knowledge server and evidence-grounded AI assistant.",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "eval": "tsx evals/run.ts",
+    "seed": "tsx scripts/seed.ts",
+    "reset": "tsx scripts/reset.ts",
+    "secret-scan": "node scripts/secret-scan.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.0",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  },
+  "engines": { "node": ">=22" },
+  "license": "MIT"
+}
