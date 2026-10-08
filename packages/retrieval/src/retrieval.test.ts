@@ -29,4 +29,10 @@ describe("KnowledgeRepository", () => {
     expect(repository.listDocuments().find(document=>document.id==="upload-test")?.chunkCount).toBe(1);
     expect(repository.overview().documents.some(document=>document.title==="Robotics Notes")).toBe(true);
   });
+  it("centers excerpts around matching evidence in long chunks", () => {
+    repository.ingestDocument({id:"upload-long",title:"Long Recommendation",description:"Test",filePath:"/tmp/long.txt",mimeType:"text/plain",checksum:"long-checksum",text:`${"general introduction ".repeat(35)}The MCP Server major project demonstrated research aptitude and hands-on experimentation. ${"closing note ".repeat(35)}`});
+    const result=repository.search({query:"MCP Server project",limit:5,search_mode:"keyword"}).results.find(item=>item.document_id==="upload-long");
+    expect(result?.excerpt).toContain("MCP Server major project");
+    expect(result?.excerpt.startsWith("…")).toBe(true);
+  });
 });

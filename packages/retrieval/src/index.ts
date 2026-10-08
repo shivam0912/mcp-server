@@ -10,6 +10,7 @@ const stopwords = new Set(["a","an","and","are","as","at","be","by","do","does",
 const stem = (term: string) => term.replace(/(ations|ation|ating|ated)$/," ").trim().replace(/(ing|ed|es|s)$/," ").trim() || term;
 const terms = (value: string) => [...new Set(normalize(value).split(" ").filter((term) => term.length > 1 && !stopwords.has(term)).map(stem))];
 const tokensMatch = (left: string, right: string) => left === right || (left.length >= 3 && right.length >= 3 && (left.startsWith(right) || right.startsWith(left)));
+function excerptAroundMatch(content:string,queryTerms:string[],maximumLength=420){if(content.length<=maximumLength)return content;const lower=content.toLowerCase();const positions=queryTerms.map(term=>lower.indexOf(term.toLowerCase())).filter(position=>position>=0);if(!positions.length)return `${content.slice(0,maximumLength-1).trimEnd()}…`;const anchor=Math.min(...positions);const start=Math.max(0,Math.min(content.length-maximumLength,anchor-Math.floor(maximumLength*.3)));const prefix=start>0?"…":"";const end=Math.min(content.length,start+maximumLength-prefix.length);const suffix=end<content.length?"…":"";return `${prefix}${content.slice(start,end-suffix.length).trim()}${suffix}`;}
 export const defaultDataDirectory = resolve(dirname(fileURLToPath(import.meta.url)), "../../../data");
 
 export function chunkText(text: string, size = 600, overlap = 100) {
@@ -61,7 +62,7 @@ export class KnowledgeRepository {
       const phrase = normalizedQuery.length > 3 && normalize(`${row.document_title} ${row.section_title ?? ""} ${row.content}`).includes(normalizedQuery) ? 0.35 : 0;
       return { row, score: Math.min(1, coverage * 0.65 + titleCoverage * 0.25 + phrase) };
     }).filter(({ score }) => score >= 0.2).sort((a,b) => b.score-a.score || a.row.chunk_id.localeCompare(b.row.chunk_id)).slice(0,input.limit);
-    const results = ranked.map(({row,score}) => ({ document_id:row.document_id, document_title:row.document_title, chunk_id:row.chunk_id, excerpt:row.content.slice(0,420), relevance_score:Number(score.toFixed(4)), page:row.page_number ?? 1, section:row.section_title ?? "Imported content", citation_id:`${row.document_id}#${row.chunk_id}` }));
+    const results = ranked.map(({row,score}) => ({ document_id:row.document_id, document_title:row.document_title, chunk_id:row.chunk_id, excerpt:excerptAroundMatch(row.content,queryTerms), relevance_score:Number(score.toFixed(4)), page:row.page_number ?? 1, section:row.section_title ?? "Imported content", citation_id:`${row.document_id}#${row.chunk_id}` }));
     return { results, search_mode_used:"keyword", ...(input.search_mode!=="keyword"?{notice:"Embeddings are not configured in local mode; deterministic keyword retrieval was used."}:{}) };
   }
 
