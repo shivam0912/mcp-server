@@ -1,0 +1,335 @@
+{
+  "suiteVersion": "1.0.0",
+  "createdAt": "2026-10-08T15:09:45.267Z",
+  "total": 40,
+  "passed": 40,
+  "toolSelectionAccuracy": 1,
+  "retrievalRecallAt5": 1,
+  "citationAccuracy": 1,
+  "p95LatencyMs": 0.574,
+  "observations": [
+    {
+      "id": "s01",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 4.314
+    },
+    {
+      "id": "s02",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.341
+    },
+    {
+      "id": "s03",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.307
+    },
+    {
+      "id": "s04",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.324
+    },
+    {
+      "id": "s05",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.245
+    },
+    {
+      "id": "s06",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.502
+    },
+    {
+      "id": "s07",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.224
+    },
+    {
+      "id": "s08",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.206
+    },
+    {
+      "id": "s09",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.201
+    },
+    {
+      "id": "s10",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.204
+    },
+    {
+      "id": "m01",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.206
+    },
+    {
+      "id": "m02",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.201
+    },
+    {
+      "id": "m03",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.19
+    },
+    {
+      "id": "m04",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.198
+    },
+    {
+      "id": "m05",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.574
+    },
+    {
+      "id": "m06",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.191
+    },
+    {
+      "id": "m07",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.183
+    },
+    {
+      "id": "m08",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.185
+    },
+    {
+      "id": "r01",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": null,
+      "citationValid": null,
+      "latencyMs": 0.022
+    },
+    {
+      "id": "r02",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": null,
+      "citationValid": null,
+      "latencyMs": 0.003
+    },
+    {
+      "id": "r03",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": null,
+      "citationValid": null,
+      "latencyMs": 0.007
+    },
+    {
+      "id": "r04",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": null,
+      "citationValid": null,
+      "latencyMs": 0.008
+    },
+    {
+      "id": "r05",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": null,
+      "citationValid": null,
+      "latencyMs": 0.002
+    },
+    {
+      "id": "r06",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": null,
+      "citationValid": null,
+      "latencyMs": 0.002
+    },
+    {
+      "id": "a01",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.166
+    },
+    {
+      "id": "a02",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.175
+    },
+    {
+      "id": "a03",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.157
+    },
+    {
+      "id": "a04",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.157
+    },
+    {
+      "id": "u01",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.175
+    },
+    {
+      "id": "u02",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.162
+    },
+    {
+      "id": "u03",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.18
+    },
+    {
+      "id": "u04",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.196
+    },
+    {
+      "id": "x01",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": null,
+      "citationValid": null,
+      "latencyMs": 0.011,
+      "note": "FORBIDDEN_COLLECTION"
+    },
+    {
+      "id": "x02",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": null,
+      "citationValid": null,
+      "latencyMs": 0.817,
+      "note": "[\n  {\n    \"origin\": \"string\",\n    \"code\": \"too_small\",\n    \"minimum\": 1,\n    \"inclusive\": true,\n    \"path\": [\n      \"query\"\n    ],\n    \"message\": \"Too small: expected string to have >=1 characters\"\n  }\n]"
+    },
+    {
+      "id": "x03",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": null,
+      "citationValid": null,
+      "latencyMs": 0.081,
+      "note": "[\n  {\n    \"origin\": \"number\",\n    \"code\": \"too_big\",\n    \"maximum\": 10,\n    \"inclusive\": true,\n    \"path\": [\n      \"limit\"\n    ],\n    \"message\": \"Too big: expected number to be <=10\"\n  }\n]"
+    },
+    {
+      "id": "x04",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": null,
+      "citationValid": null,
+      "latencyMs": 0.016
+    },
+    {
+      "id": "p01",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.216
+    },
+    {
+      "id": "p02",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.217
+    },
+    {
+      "id": "p03",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.204
+    },
+    {
+      "id": "p04",
+      "passed": true,
+      "toolCorrect": true,
+      "retrievalHit": true,
+      "citationValid": true,
+      "latencyMs": 0.217
+    }
+  ]
+}
