@@ -8,7 +8,7 @@ Updated: 8 October 2026
 - Official MCP SDK v2 server with four tools, eight document resources, collection resource, evidence prompt, Streamable HTTP, and stdio.
 - Independent stdio client handshake, tool discovery, and tool execution.
 - SQLite persistence with eight seeded documents, twenty records, uploaded document metadata, chunks, checksums, and tool observations.
-- Functional local upload, extraction (PDF/DOCX/TXT/MD), duplicate detection, re-index, delete, and live knowledge-library refresh.
+- Functional local upload, extraction (PDF/DOCX/TXT/MD), offline OCR fallback for scanned PDFs, duplicate detection, re-index, delete, and live knowledge-library refresh.
 - Deterministic ranked retrieval, explicit semantic fallback, citations, authorization boundary, structured tool errors.
 - Six responsive Next.js pages, persistent light/dark appearance, independently scrolling chat panes, and an MCP-backed chat route.
 - OpenAI-compatible model-selected MCP tool calls and grounded synthesis when configured, with deterministic local tool planning and evidence composition as the credential-free fallback.

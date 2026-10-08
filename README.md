@@ -13,7 +13,7 @@ The repository is designed to work without cloud credentials. SQLite persists up
 - Next.js pages for home, AI workspace, live knowledge library, functional local administration, evaluations, and developer docs.
 - Actual MCP client invocation in the web chat route; there is no REST shortcut around MCP.
 - Source identifiers, missing-information behavior, prompt-injection boundaries, bearer auth, origin validation, rate limits, bounded inputs, and security headers.
-- Safe PDF, DOCX, TXT, and Markdown ingestion with checksums, duplicate detection, 10 MB limits, re-indexing, and deletion.
+- Safe PDF, DOCX, TXT, and Markdown ingestion with offline OCR for scanned PDFs, checksums, duplicate detection, 10 MB limits, re-indexing, and deletion.
 - SQLite local persistence by default, plus optional PostgreSQL/pgvector migrations, Docker artifacts, deployment configuration, CI, tests, and deterministic evaluation.
 
 ## Quick start

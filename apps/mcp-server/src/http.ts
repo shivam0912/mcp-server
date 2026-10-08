@@ -50,7 +50,7 @@ app.use((error: unknown, _request: express.Request, response: express.Response, 
   console.error("Request failed", error instanceof Error ? error.message : "Unknown error");
   if (error instanceof multer.MulterError) return response.status(400).json({ error: { code: error.code, message: error.code === "LIMIT_FILE_SIZE" ? "The file is larger than the 10 MB limit." : "The upload was rejected." } });
   const code=error instanceof Error?error.message:"INTERNAL_ERROR";
-  const known:Record<string,[number,string]>={UNSUPPORTED_FILE:[415,"Use a valid PDF, DOCX, TXT, or MD file up to 10 MB."],INVALID_FILE:[400,"The file contents do not match the selected format."],EMPTY_DOCUMENT:[422,"No readable text was found in this document."],DUPLICATE_DOCUMENT:[409,"This exact document is already in the collection."],NOT_FOUND:[404,"The uploaded document was not found."]};
+  const known:Record<string,[number,string]>={UNSUPPORTED_FILE:[415,"Use a valid PDF, DOCX, TXT, or MD file up to 10 MB."],INVALID_FILE:[400,"The file contents do not match the selected format."],EMPTY_DOCUMENT:[422,"No readable text was found in this document."],OCR_NO_TEXT:[422,"No readable text was found, including after local OCR."],DUPLICATE_DOCUMENT:[409,"This exact document is already in the collection."],NOT_FOUND:[404,"The uploaded document was not found."]};
   const mapped=known[code];response.status(mapped?.[0]??500).json({ error: { code, message:mapped?.[1]??"The request could not be completed." } });
 });
 
