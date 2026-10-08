@@ -34,7 +34,7 @@ async function providerRequest(body:unknown){const base=(process.env.LLM_BASE_UR
 
 function planTool(question:string,available:Set<string>):ToolPlan{
   const normalized=question.toLowerCase();
-  if(available.has("get_collection_overview")&&/(what (access|can you|do you)|collection|how many documents|connected|capabilit|available topics)/.test(normalized))return{name:"get_collection_overview",arguments:{}};
+  if(available.has("get_collection_overview")&&/(what (access|can you|do you)|collection|how many (docs|documents)|which (docs|documents)|what (docs|documents)|list (the )?(docs|documents)|docs (do )?you have|documents (do )?you have|connected|capabilit|available topics)/.test(normalized))return{name:"get_collection_overview",arguments:{}};
   const record=normalized.match(/(?:project|course|research)(?:\s+(?:called|named|id))?\s+["“]?([a-z0-9][a-z0-9 _-]{1,80})["”]?/i);
   if(record&&available.has("lookup_record")){const type=(normalized.match(/project|course|research/)?.[0]??"project") as "project"|"course"|"research";return{name:"lookup_record",arguments:{record_type:type,record_id:record[1]?.replace(/[?.!,]+$/g,"").trim()}}}
   const document=question.match(/(?:open|get|show|read)\s+(?:the\s+)?document\s+["“]?([a-z0-9][a-z0-9_-]{1,80})/i);
@@ -45,8 +45,11 @@ function planTool(question:string,available:Set<string>):ToolPlan{
 
 function interpretResult(question:string,plan:ToolPlan,payload?:Record<string,unknown>){
   if(plan.name==="get_collection_overview"){
-    const collection=payload?.collection as {name?:string;document_count?:number;topics?:string[];supported_record_types?:string[]}|undefined;if(!collection)return insufficient();
-    return{answer:`I have read-only access to the local “${collection.name}” collection through MCP. It currently contains ${collection.document_count??0} indexed documents. I can search documents, retrieve cited sections, look up ${collection.supported_record_types?.join(", ")??"structured"} records, and describe the collection. I cannot browse your computer, read arbitrary files, or change data through the public chat.\n\nAvailable topics include ${collection.topics?.join(", ")??"the indexed collection"}.`,citations:[]};
+    const collection=payload?.collection as {name?:string;document_count?:number;documents?:Array<{id:string;title:string;source:string}>;topics?:string[];supported_record_types?:string[]}|undefined;if(!collection)return insufficient();
+    const asksForDocuments=/(docs|documents|files)/.test(question.toLowerCase());
+    const documentList=collection.documents?.map((document,index)=>`${index+1}. ${document.title}${document.source==="upload"?" (uploaded)":""}`).join("\n");
+    const overview=`I have read-only access to the local “${collection.name}” collection through MCP. It currently contains ${collection.document_count??0} indexed documents. I can search documents, retrieve cited sections, look up ${collection.supported_record_types?.join(", ")??"structured"} records, and describe the collection. I cannot browse your computer, read arbitrary files, or change data through the public chat.`;
+    return{answer:asksForDocuments&&documentList?`${overview}\n\nAvailable documents:\n${documentList}`:`${overview}\n\nAvailable topics include ${collection.topics?.join(", ")??"the indexed collection"}.`,citations:[]};
   }
   if(plan.name==="lookup_record"){const record=payload?.record as {title?:string;fields?:Record<string,unknown>}|undefined;if(!record)return insufficient();const details=Object.entries(record.fields??{}).map(([key,value])=>`${key.replaceAll("_"," ")}: ${Array.isArray(value)?value.join(", "):String(value)}`).join("\n");return{answer:`${record.title}\n\n${details}`,citations:[]}}
   if(plan.name==="get_document"){const document=payload?.document as {title?:string}|undefined;const sections=payload?.sections as Array<{content:string;citation_id:string}>|undefined;if(!document||!sections?.length)return insufficient();const selected=sections.slice(0,3);return{answer:`${document.title}\n\n${selected.map(section=>`${section.content} [${section.citation_id}]`).join("\n\n")}`,citations:selected.map(section=>section.citation_id)}}

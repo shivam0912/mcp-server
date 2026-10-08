@@ -27,5 +27,6 @@ describe("KnowledgeRepository", () => {
     repository.ingestDocument({id:"upload-test",title:"Robotics Notes",description:"Test",filePath:"/tmp/test.txt",mimeType:"text/plain",checksum:"test-checksum",text:"The rover uses lidar mapping and autonomous path planning."});
     expect(repository.search({query:"lidar mapping",limit:5,search_mode:"keyword"}).results[0]?.document_id).toBe("upload-test");
     expect(repository.listDocuments().find(document=>document.id==="upload-test")?.chunkCount).toBe(1);
+    expect(repository.overview().documents.some(document=>document.title==="Robotics Notes")).toBe(true);
   });
 });
